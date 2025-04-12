@@ -47,6 +47,11 @@ describe(`Function 'checkPassword':`, () => {
     expect(checkPassword('Пароль1!')).toBe(false);
   });
 
+  it(`should return 'false' if password contains non-Latin letters`, () => {
+    // eslint-disable-next-line max-len
+    expect(checkPassword('Рassword1!')).toBe(false); // первая буква — кириллическая "Р"
+  });
+
   it(`should return 'false' if password contains space`, () => {
     expect(checkPassword('Pass word1!')).toBe(false);
   });
